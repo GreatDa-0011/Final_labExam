@@ -1,9 +1,9 @@
 // components/BookForm.js
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import '../styles.css';
 
-const BookForm = ({ onSuccess }) => { // Accept onSuccess as prop
+const BookForm = ({ onSuccess }) => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -49,7 +49,7 @@ const BookForm = ({ onSuccess }) => { // Accept onSuccess as prop
                 body: JSON.stringify(formData),
             });
             if (!response.ok) throw new Error('Failed to save book');
-            onSuccess(id ? 'Book updated successfully!' : 'Book added successfully!'); // Call onSuccess
+            onSuccess(id ? 'Book updated successfully!' : 'Book added successfully!');
             navigate('/'); // Navigate to home after success
         } catch (error) {
             console.error(error);
@@ -57,18 +57,20 @@ const BookForm = ({ onSuccess }) => { // Accept onSuccess as prop
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>{id ? 'Edit Book' : 'Add New Book'}</h2>
-            <input type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
-            <input type="text" name="author" placeholder="Author" value={formData.author} onChange={handleChange} required />
-            <input type="number" name="published_year" placeholder="Published Year" value={formData.published_year} onChange={handleChange} required />
-            <input type="text" name="genre" placeholder="Genre" value={formData.genre} onChange={handleChange} required />
-            <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
-            <div className="button-container">
-                <button type="submit">{id ? 'Update Book' : 'Add Book'}</button>
-                <button type="button" onClick={() => navigate('/')}>Cancel</button>
-            </div>
-        </form>
+        <div className="form-container"> {/* Changed class name for styling */}
+            <form onSubmit={handleSubmit} className="book-form">
+                <h2>{id ? 'Edit Book Form' : 'Add Book Form '}</h2>
+                <input type="text" name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
+                <input type="text" name="author" placeholder="Author" value={formData.author} onChange={handleChange} required />
+                <input type="number" name="published_year" placeholder="Published Year" value={formData.published_year} onChange={handleChange} required />
+                <input type="text" name="genre" placeholder="Genre" value={formData.genre} onChange={handleChange} required />
+                <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
+                <div className="button-container">
+                    <button type="submit">{id ? 'Update Book' : 'Add Book'}</button>
+                    <button type="button" onClick={() => navigate('/')}>Cancel</button>
+                </div>
+            </form>
+        </div>
     );
 };
 

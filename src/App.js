@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AddBook from './pages/AddBook';
 import EditBook from './pages/EditBook';
 import ViewBook from './pages/ViewBook';
+import './styles.css';
 
 const App = () => {
     const [notification, setNotification] = useState('');

@@ -4,8 +4,14 @@ import '../styles.css';
 
 const BookList = ({ books, onDelete }) => {
     return (
-        <div className="book-list">
-            <h2>Book List</h2>
+    
+
+        <div className="page-container">
+            <h2 className="page-title-Booklist">Book List</h2> {
+            /* Moved title to the top */}
+            <Link to="/add">
+                <button className="add-button">Add Book</button>
+            </Link>
             <div className="card-container">
                 {books.map((book) => (
                     <div key={book.id} className="card">

@@ -1,465 +1,401 @@
+/* Color Palette */
+:root {
+    --moss-green: #8A9A5B;
+    --olive-drab: #6B8E23;
+    --forest-green: #228B22;
+    --sage: #B2AC88;
+    --earth-brown: #6A4E42;
+    --background-color: #f0f0f0;
+    --text-color: #ffffff;
+    --button-color: #6B8E23;
+    --button-hover-color: #8A9A5B;
+}
+
+/* Body and Container */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #121f45 30%, #223971 70%); /* Gradient background */
+    background-color: var(--background-color);
     margin: 0;
+    padding: 0;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 20px;
-    color: #fff; /* Change text color to white for better contrast */
+    min-height: 100vh;
+    background-color: var(--sage);
 }
 
-h1 {
-    color: #ffc906;
+/* Common Card Styles */
+.card, .book-details-card, .book-form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 10px;
+    max-width: 600px;
+    width: 100%;
 }
-h2,h3{
-    color:#cc1e4a
-}
 
-
-
-.header {
+/* Book Details */
+.book-details-card {
     text-align: center;
-    margin-bottom: 20px;
+}
+
+.book-title {
+    color: var(--forest-green);
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 
-.card {
-    background-color: #ffc906;
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Book List */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     padding: 20px;
-    margin: 0; /* Remove margin to use gap instead */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    flex: 0 1 calc(25% - 15px); /* 4 cards per row, adjust for gaps */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
-    min-width: 200px; /* Minimum card width */
 }
 
+/* Responsive design for mobile */
+@media (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(3, 1fr); /* Adjust for tablets */
+    }
+}
 
-/* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    .card {
-        flex: 0 1 calc(50% - 30px); /* 2 cards per row on smaller screens */
+    .card-container {
+        grid-template-columns: repeat(2, 1fr); /* Stack into two columns */
     }
 }
 
 @media (max-width: 480px) {
-    .card {
-        flex: 0 1 calc(100% - 30px); /* 1 card per row on very small screens */
+    .card-container {
+        grid-template-columns: 1fr; /* Stack into one column */
     }
 }
 
-
-.card-container {
+.card {
+    background-color: var(--moss-green);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    height: 175px;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping of items */
-    justify-content: flex-start; /* Align items to the left */
-    gap: 15px; /* Optional: Space between cards */
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
 }
 
+.card h3 {
+    color: var(--text-color);
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-color);
+    margin: 5px 0;
+}
 
 .card-actions {
-    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
 }
 
-form {
-    background-color: transparent; /* Set to transparent */
-    color: #ffc906; /* Gold text color */
+/* Button Colors */
+.view-button {
+    background-color: var(--sage);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.edit-button {
+    background-color: var(--forest-green);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.delete-button {
+    background-color: var(--earth-brown);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effects */
+.view-button:hover {
+    background-color: var(--olive-drab);
+}
+
+.edit-button:hover {
+    background-color: var(--moss-green);
+}
+
+.delete-button:hover {
+    background-color: #5a3b3b;
+}
+
+/* Book Management Page Styling */
+.book-management-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+.book-list-section {
+    text-align: left;
+    margin: 20px 20px;
+}
+
+.book-list-title {
+    color: var(--forest-green);
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+
+/* Enhanced Add Book Button */
+.add-button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: var(--olive-drab);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.add-button:hover {
+    background-color: var(--forest-green);
+}
+
+/* Notification Styling */
+.notification {
+    margin-top: 10px; /* Space below header */
+    background-color: var(--forest-green);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: 1px solid #c3e6cb; /* Light green border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for clickable message */
+    position: absolute; /* Position absolutely within the header container */
+    top: 20px; /* Adjust this value based on your layout */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust position back to center */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.5s ease; /* Fade transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.notification.success {
+    background-color: var(--olive-drab);
+}
+
+/* Home Background */
+.home-background {
+    background-color: var(--sage);
     padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 600px; /* Centered form */
-    margin: 0 auto;
+    min-height: 100vh;
 }
 
-input, textarea {
-    width: calc(100% - 20px);
+/* Centered Form Styling */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+/* Page Container Styling */
+.book-management-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center elements horizontally */
+    justify-content: center; /* Center elements vertically */
+    min-height: 100vh; /* Full height of the viewport */
+    background: linear-gradient(135deg, #8A9A5B, #B2AC88); /* Moss green gradient */
+    padding: 20px; /* Add some padding */
+}
+
+/* Title Styling */
+.page-title {
+    text-align: center; /* Align the title to the left */
+    color: var(--forest-green); /* Maintain the desired text color */
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 24px; /* Set font size */
+}
+.page-title-Booklist{
+    text-align: center; /* Align the title to the left */
+    color: var(--forest-green); /* Maintain the desired text color */
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 24px; /* Set font size */
+}
+
+
+/* Enhanced Form Background */
+.book-form {
+    background-color: #8A9A5B; /* Moss green */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Floating effect */
+    padding: 30px; /* Padding inside the form */
+    width: 100%; /* Full width */
+    max-width: 400px; /* Maximum width */
+    margin: auto; /* Center the form horizontally */
+}
+
+/* Title Styling */
+.book-form h2 {
+    text-align: left; /* Align the heading to the left */
+    color: var(--forest-green); /* Keep the text color */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+/* Input and Textarea Styling */
+.book-form input,
+.book-form textarea {
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-button {
-    background-color: #cc1e4a;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-button:hover {
-    background-color: #223971;
-}
-
-.loading {
-    text-align: center;
-    font-size: 18px;
-    color: #121f45;
-}
-
-.popup {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #cc1e4a;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    z-index: 1000;
-    animation: fadeInOut 3s forwards;
-}
-
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-.add-button {
-    display: inline-block;
-    background-color: #223971;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-bottom: 20px;
-}
-
-.add-button:hover {
-    background-color: #cc1e4a;
-}
-
-.book-list {
-    margin-top: 20px;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 20px;
-    color: #223971;
-}
-
-.form {
-    margin-bottom: 20px;
-}
-
-/*Home header */
-/* Centered Heading */
-.header {
-    text-align: center;
-    margin-top: 0;
-    padding-top: 10px; /* Adds space from the top */
-}
-
-.page-title {
-    font-size: 32px; /* Larger font size */
-    color: #ffc906; /* Gold color */
-    font-weight: bold;
-    margin: 0; /* Removes extra margin */
-}
-
-
-
-
-/*Buttons  Design */
-button, .add-button {
-    background-color: #cc1e4a; /* Base button color */
-    color: #fff; /* Text color */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Padding for button size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Bold text */
-}
-
-button:hover, .add-button:hover {
-    background-color: #223971; /* Darker background on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-button:active, .add-button:active {
-    background-color: #121f45; /* Darker shade when active */
-    transform: translateY(0); /* Return to original position */
-}
-
-.button-container {
-    display: flex; /* Flexbox for button layout */
-    justify-content: space-between; /* Space between buttons */
-    margin-top: 20px; /* Space above buttons */
-}
-
-/*Edit & Delete Buttons design*/
-
-.view-button, .edit-button {
-    background-color: #223971; /* Base color for View and Edit buttons */
-    color: #fff; /* Text color */
-    border: none; /* Remove default border */
-    padding: 10px 15px; /* Padding for button size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
-    font-size: 16px; /* Font size */
-    font-weight: bold; /* Bold text */
-}
-
-.view-button:hover, .edit-button:hover {
-    background-color: #cc1e4a; /* Change color on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-.view-button:active, .edit-button:active {
-    background-color: #121f45; /* Darker shade when active */
-    transform: translateY(0); /* Return to original position */
-}
-
-.card-actions {
-    display: flex; /* Flexbox for button layout */
-    justify-content: space-between; /* Space between buttons */
-    margin-top: 10px; /* Space above buttons */
-}
-
-
-/*Home.js */
-/* Fixed add button styling */
-.fixed-add-button {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #223971;
-    color: #fff;
-    padding: 12px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.fixed-add-button:hover {
-    background-color: #cc1e4a;
-    transform: translateY(-2px);
-}
-
-.fixed-add-button:active {
-    background-color: #121f45;
-    transform: translateY(0);
-}
-
-
-/* BookDetails Styling */
-.book-details-card {
-    background-color: #121f45; /* Dark navy background */
-    color: #ffc906; /* Gold text color for readability */
-    padding: 30px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 600px;
-    font-size: 18px;
-    line-height: 1.8; /* Increased line spacing */
-}
-
-
-
-/*Book Details*/
-
-/* Title Styling */
-.book-title {
-    color: #ffc906; /* Gold for title */
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-/* Author and Meta Data */
-.book-author, .book-description, .book-details-card p {
-    color: #d1d1d1; /* Light gray for meta info */
-    font-size: 18px;
-    margin-bottom: 15px;
-    padding: 8px 0;
-}
-
-/* Emphasized Label */
-.book-details-card p strong {
-    color: #cc1e4a; /* Red accent color for labels */
-    font-weight: bold;
-}
-
-/* Description Styling */
-.book-description {
-    color: #d1d1d1; /* Light gray for description text */
-    font-style: italic;
-}
-
-/* Back Button */
-.back-button {
-    display: block;
-    margin: 30px auto 0;
-    background-color: #cc1e4a; /* Red accent for primary button */
-    color: #ffc906; /* Gold text */
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.back-button:hover {
-    background-color: #223971; /* Navy blue on hover */
-    transform: translateY(-2px);
-}
-
-.back-button:active {
-    background-color: #121f45; /* Darker shade for active state */
-    transform: translateY(0);
-}
-
-
-
-
-
-/*EDIT.js*/
-/* Form Title */
-
-
-/* Edit Form Container */
-.edit-form-container {
-    background: #121f45; /* Gradient background */
-    color: #ffc906; /* Gold text color */
-    padding: 40px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    max-width: 600px;
-    font-size: 18px;
-}
-
-/* Edit Form Container */
-/* Book Form Styles */
-form {
-    background-color: transparent; /* Keep the form background transparent */
-    color: #ffc906; /* Gold text color */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: none; /* Remove shadow if not needed */
-    max-width: 600px; /* Same max width as the container */
-    margin: 0 auto; /* Centering the form */
-}
-
-/* Form Title */
-h2 {
-    font-size: 24px;
-    color: #ffc906; /* Gold color for the title */
-    text-align: center;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-/* Input Fields */
-input[type="text"], input[type="number"], textarea {
-    background-color: transparent; /* Navy background for inputs */
-    color:  #ffffff; /* Light gray text color */
-    border: 2px solid  #000000 ; 
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    width: calc(100% - 20px); /* Full width with padding */
-    font-size: 18px;
-}
-
-/* Placeholder Color */
-input::placeholder, textarea::placeholder {
-    color: #ff0000; /* Light gray for placeholders */
-}
-
-/* Button Styles */
-button {
-    background-color: #cc1e4a; /* Red for buttons */
-    color: #ffc906; /* Gold text */
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 10px;
-}
-
-button:hover {
-    background-color: #223971; /* Navy on hover */
-    transform: translateY(-2px); /* Lift effect */
-}
-
-button:active {
-    background-color: #121f45; /* Darker shade on active */
-    transform: translateY(0);
-}
-
-/* Cancel Button Specific Styles */
+/* Button Container */
 .button-container {
     display: flex;
-    justify-content: space-between; /* Space buttons evenly */
+    justify-content: space-between;
 }
 
-
-
-/* Message pop design  */
-
-
-.notification {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffcc00; /* Yellow background */
-    color: #fff;
-    padding: 15px 20px;
-    border-radius: 5px;
-    z-index: 1000;
-    animation: fadeInOut 3s forwards;
-}
-
-.notification.success {
-    background-color: #28a745; /* Green background for success */
-    border: 1px solid #218838; /* Darker green border */
-}
-
-.notification button {
-    margin-left: 15px;
-    background: transparent;
+/* Button Styling */
+.button-container button {
+    background-color: #6B8E23; /* Olive Drab */
+    color: white;
     border: none;
-    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-@keyframes fadeInOut {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
+/* Button Hover Effect */
+.button-container button:hover {
+    background-color: #228B22; /* Forest Green on hover */
+}
+
+
+.view-book-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full height for centering */
+    background-color: #B2AC88; /* Use Sage background color */
+    padding: 20px;
+}
+
+.book-details-card {
+    background-color: #8A9A5B; /* Moss Green for card background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Floating effect */
+    padding: 20px; /* Padding inside the card */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Maximum width */
+    color: white; /* Text color */
+}
+
+.book-author, .book-description {
+    margin: 10px 0; /* Space above and below text */
+}
+
+.back-button {
+    background-color: var(--olive-drab);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.back-button:hover {
+    background-color: var(--moss-green);
+}
+
+
+
+.header-container {
+    text-align: center; /* Center the contents */
+    position: relative; /* Position relative for absolute child positioning */
 }
 
 .success-message {
-    background-color: #cc1e4a; /* Background color */
-    color: white; /* Text color */
-    padding: 10px 20px; /* Padding around the text */
+    margin-top: 10px; /* Space below header */
+    background-color: var(--forest-green);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: 1px solid #c3e6cb; /* Light green border */
     border-radius: 5px; /* Rounded corners */
-    position: fixed; /* Fixed positioning */
-    top: 20px; /* Distance from the top */
+    cursor: pointer; /* Pointer cursor for clickable message */
+    position: absolute; /* Position absolutely within the header container */
+    top: 20px; /* Adjust this value based on your layout */
     left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center the message */
-    z-index: 1000; /* Ensure it's above other elements */
-    transition: opacity 0.5s ease-in-out; /* Fade effect */
-    opacity: 1; /* Initial opacity */
+    transform: translateX(-50%); /* Adjust position back to center */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.5s ease; /* Fade transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    z-index: 1000;
 }
+
+.success-message.fade-out {
+    opacity: 0; /* Invisible */
+}
+
+

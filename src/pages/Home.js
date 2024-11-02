@@ -1,4 +1,3 @@
-// pages/Home.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BookList from '../components/BookList';
@@ -6,7 +5,8 @@ import '../styles.css';
 
 const Home = () => {
     const [books, setBooks] = useState([]);
-    const [message, setMessage] = useState(''); // State for message
+    const [message, setMessage] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
 
     const fetchBooks = async () => {
         try {
@@ -29,31 +29,32 @@ const Home = () => {
                 method: 'DELETE',
             });
             if (!response.ok) throw new Error('Failed to delete book');
-            setMessage('Book deleted successfully!'); // Set success message
+            setMessage('Book deleted successfully!');
+            setIsVisible(true);
+            setTimeout(() => {
+                setIsVisible(false);
+            }, 3000); // Fade out after 3 seconds
             fetchBooks();
         } catch (error) {
             console.error(error);
         }
     };
 
-    const clearMessage = () => {
-        setMessage(''); // Clear message
-    };
-
     return (
-        <div>
-            <header className="header">
-                <h1 className="page-title">Book Management System</h1>
-            </header>
-            
-            {message && (
-                <div className="success-message" onClick={clearMessage}>
-                    {message}
-                </div>
-            )}
+        <div className="home-background">
+            <div className="header-container">
+                <header className="header">
+                    <h1 className="page-title">Book Management System</h1>
+                </header>
+
+                {isVisible && (
+                    <div className="success-message" onClick={() => setIsVisible(false)}>
+                        {message}
+                    </div>
+                )}
+            </div>
 
             <BookList books={books} onDelete={handleDelete} />
-            <Link to="/add" className="fixed-add-button">Add Book</Link>
         </div>
     );
 };
