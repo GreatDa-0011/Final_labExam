@@ -16,74 +16,74 @@ class BookSeeder extends Seeder
     {
         $books = [
             [
-                'title' => 'The Great Gatsby',
-                'author' => 'F. Scott Fitzgerald',
-                'published_year' => 1925,
-                'genre' => 'Novel',
-                'description' => 'A story about the American dream.',
-            ],
-            [
-                'title' => 'To Kill a Mockingbird',
-                'author' => 'Harper Lee',
-                'published_year' => 1960,
-                'genre' => 'Novel',
-                'description' => 'A novel about racial injustice in the Deep South.',
-            ],
-            [
-                'title' => '1984',
-                'author' => 'George Orwell',
-                'published_year' => 1949,
-                'genre' => 'Dystopian',
-                'description' => 'A dystopian novel set in a totalitarian regime.',
-            ],
-            [
-                'title' => 'Pride and Prejudice',
-                'author' => 'Jane Austen',
-                'published_year' => 1813,
-                'genre' => 'Romance',
-                'description' => 'A classic novel of manners.',
-            ],
-            [
-                'title' => 'The Catcher in the Rye',
-                'author' => 'J.D. Salinger',
-                'published_year' => 1951,
-                'genre' => 'Fiction',
-                'description' => 'A story about teenage angst and alienation.',
-            ],
-            [
-                'title' => 'Moby Dick',
-                'author' => 'Herman Melville',
-                'published_year' => 1851,
-                'genre' => 'Adventure',
-                'description' => 'The narrative of a sailor’s obsession with a giant whale.',
-            ],
-            [
-                'title' => 'War and Peace',
-                'author' => 'Leo Tolstoy',
-                'published_year' => 1869,
-                'genre' => 'Historical Fiction',
-                'description' => 'A complex tale of Russian society during the Napoleonic wars.',
-            ],
-            [
-                'title' => 'The Odyssey',
-                'author' => 'Homer',
-                'published_year' => -800,
-                'genre' => 'Epic',
-                'description' => 'An epic poem about Odysseus\'s journey home.',
-            ],
-            [
-                'title' => 'Jane Eyre',
-                'author' => 'Charlotte Brontë',
-                'published_year' => 1847,
-                'genre' => 'Romance',
-                'description' => 'The story of a young woman’s moral and spiritual development.',
-            ],
-            [
-                'title' => 'The Hobbit',
-                'author' => 'J.R.R. Tolkien',
-                'published_year' => 1937,
+                'title' => 'Where the Wild Things Are',
+                'author' => 'Maurice Sendak',
+                'published_year' => 1963,
                 'genre' => 'Fantasy',
-                'description' => 'A fantasy adventure of a hobbit named Bilbo Baggins.',
+                'description' => 'A story about a young boy\'s journey to a land of monsters.',
+            ],
+            [
+                'title' => 'Charlotte’s Web',
+                'author' => 'E.B. White',
+                'published_year' => 1952,
+                'genre' => 'Children\'s Fiction',
+                'description' => 'A tale of friendship between a pig and a spider.',
+            ],
+            [
+                'title' => 'The Cat in the Hat',
+                'author' => 'Dr. Seuss',
+                'published_year' => 1957,
+                'genre' => 'Fantasy',
+                'description' => 'A mischievous cat visits two kids on a rainy day.',
+            ],
+            [
+                'title' => 'Goodnight Moon',
+                'author' => 'Margaret Wise Brown',
+                'published_year' => 1947,
+                'genre' => 'Picture Book',
+                'description' => 'A bedtime story featuring a quiet goodnight to the world.',
+            ],
+            [
+                'title' => 'Green Eggs and Ham',
+                'author' => 'Dr. Seuss',
+                'published_year' => 1960,
+                'genre' => 'Children\'s Fiction',
+                'description' => 'A humorous story about trying new foods.',
+            ],
+            [
+                'title' => 'The Very Hungry Caterpillar',
+                'author' => 'Eric Carle',
+                'published_year' => 1969,
+                'genre' => 'Picture Book',
+                'description' => 'The journey of a caterpillar growing into a butterfly.',
+            ],
+            [
+                'title' => 'Harry Potter and the Philosopher\'s Stone',
+                'author' => 'J.K. Rowling',
+                'published_year' => 1997,
+                'genre' => 'Fantasy',
+                'description' => 'A young boy discovers he\'s a wizard and goes to magic school.',
+            ],
+            [
+                'title' => 'The Tale of Peter Rabbit',
+                'author' => 'Beatrix Potter',
+                'published_year' => 1902,
+                'genre' => 'Children\'s Fiction',
+                'description' => 'A mischievous rabbit ventures into Mr. McGregor\'s garden.',
+            ],
+            [
+                'title' => 'Winnie-the-Pooh',
+                'author' => 'A.A. Milne',
+                'published_year' => 1926,
+                'genre' => 'Children\'s Fiction',
+                'description' => 'Adventures of a lovable bear and his friends.',
+            ],
+            [
+                'title' => 'Matilda',
+                'author' => 'Roald Dahl',
+                'published_year' => 1988,
+                'genre' => 'Fantasy',
+                'description' => 'A smart girl with special powers stands up to her cruel family.',
             ],
         ];
 
@@ -91,4 +91,4 @@ class BookSeeder extends Seeder
             Book::create($book);
         }
     }
-}  
+}
